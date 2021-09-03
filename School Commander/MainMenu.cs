@@ -39,14 +39,20 @@ namespace School_Commander
 
         private void btnUrediSatnicu_Click(object sender, EventArgs e)
         {
-            FindProfil openfindProfil= new FindProfil();
+            FindProfil openfindProfil= new FindProfil(1);
             openfindProfil.Show();
         }
 
         private void btnUrediProfil_Click(object sender, EventArgs e)
         {
-            UrediProfil openUrediProfil = new UrediProfil();
-            openUrediProfil.Show();
+            FindProfil openfindProfil = new FindProfil(3);
+            openfindProfil.Show();
+        }
+
+        private void btnIspisiSatnicu_Click(object sender, EventArgs e)
+        {
+            FindProfil openfindProfil = new FindProfil(2);
+            openfindProfil.Show();
         }
     }
 }

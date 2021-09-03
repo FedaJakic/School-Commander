@@ -63,6 +63,59 @@ namespace School_Commander
             }
         }
 
+        public List<Satnica> FindSatnicaByEmployeeID_TwoDates(int ID_uposlenika, DateTime datumOd, DateTime datumDo)
+        {
+            try
+            {
+                List<Satnica> listSatnica = new List<Satnica>();
+                using (SqlConnection connection = new SqlConnection(Helper.ConnectionVal("SchoolCommander")))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = $"SELECT * FROM Satnica WHERE ID_uposlenika = {ID_uposlenika} and datumRada >= '{datumOd.Date}' and datumRada <= '{datumDo.Date}' ORDER BY Satnica.datumRada ASC";
+                        SqlDataReader dataReader = command.ExecuteReader();
+
+                        while (dataReader.Read())
+                        {
+                            Satnica satnica = new Satnica();
+
+
+                            satnica.ID_satnice = (int)dataReader["ID_satnice"];
+                            satnica.ID_uposlenika = (int)dataReader["ID_uposlenika"];
+                            satnica.datumRada = (DateTime)dataReader["datumRada"];
+                            satnica.nacinRada = dataReader["nacinRada"].ToString();
+                            satnica.radiOd = (double)dataReader["radiOd"];
+                            satnica.radiDo = (double)dataReader["radiDo"];
+                            satnica.ukupnoRadnoVrijeme = (double)dataReader["ukupnoRadnoVrijeme"];
+                            satnica.nocniRad = (double)dataReader["nocniRad"];
+                            satnica.prekovremenoVrijeme = (double)dataReader["prekovremenoVrijeme"];
+                            satnica.radNedjeljom = (double)dataReader["radNedjeljom"];
+                            satnica.radZaPraznike = (double)dataReader["radZaPraznike"];
+                            satnica.godisnjiOdmor = (double)dataReader["godisnjiOdmor"];
+                            satnica.bolovanje = (double)dataReader["bolovanje"];
+                            satnica.dopustPN = (double)dataReader["dopustPN"];
+                            satnica.napomena = (double)dataReader["napomena"];
+                            satnica.posebnaNapomena = dataReader["posebnaNapomena"].ToString();
+                            satnica.UkupnoSati = (double)dataReader["UkupnoSati"];
+
+                            listSatnica.Add(satnica);
+                        }
+                        dataReader.Close();
+                    }
+                    connection.Close();
+
+                    return listSatnica;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
         public void Insert(int ID_uposlenika, DateTime datumRada, string nacinRada, decimal radiOd, decimal radiDo,
             decimal ukupnoRadnoVrijeme, decimal nocniRad, decimal prekovremenRad, decimal radNedjeljom, decimal radZaPraznike,
             decimal godisnjiOdmor, decimal bolovanje, decimal dopustPN, decimal napomena, string posebnaNapomena, decimal UkupnoSati)

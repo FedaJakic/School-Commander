@@ -188,6 +188,7 @@ namespace School_Commander
             this.btnIspisiSatnicu.Text = "Ispiši satnicu";
             this.btnIspisiSatnicu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnIspisiSatnicu.UseVisualStyleBackColor = false;
+            this.btnIspisiSatnicu.Click += new System.EventHandler(this.btnIspisiSatnicu_Click);
             // 
             // btnUrediSatnicu
             // 

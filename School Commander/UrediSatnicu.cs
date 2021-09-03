@@ -28,6 +28,7 @@ namespace School_Commander
         public UrediSatnicu(Uposlenik izabraniUposlenik)
         {
             InitializeComponent();
+            uposlenici.Clear();
             uposlenici.Add(izabraniUposlenik);
         }
 
@@ -141,7 +142,7 @@ namespace School_Commander
             {
                 //check za zareze
                 textBoxOd.Text = textBoxOd.Text.Replace(",", ".");
-                textBoxDo.Text = textBoxOd.Text.Replace(",", ".");
+                textBoxDo.Text = textBoxDo.Text.Replace(",", ".");
                 textBoxUkupnoDnevnoRadnoVrijeme.Text = textBoxUkupnoDnevnoRadnoVrijeme.Text.Replace(",", ".");
                 textBoxNocniRad.Text = textBoxNocniRad.Text.Replace(",", ".");
                 textBoxPrekovremeniRad.Text = textBoxPrekovremeniRad.Text.Replace(",", ".");

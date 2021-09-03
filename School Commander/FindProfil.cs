@@ -13,9 +13,13 @@ namespace School_Commander
     public partial class FindProfil : Form
     {
         List<Uposlenik> findUposenik = new List<Uposlenik>();
-        public FindProfil()
+        public int formID = 0;
+        //1 -> Uredi Profil
+        //2 -> Ispisi Satnicu
+        public FindProfil(int _formID)
         {
             InitializeComponent();
+            this.formID = _formID;
         }
 
         #region Methods
@@ -74,9 +78,24 @@ namespace School_Commander
         {
             try
             {
-                UrediSatnicu openIspisiSatnicu = new UrediSatnicu(findUposenik[listBoxPronađeniRezultati.SelectedIndex]);
-                this.Close();
-                openIspisiSatnicu.Show();
+                if(formID == 1)
+                {
+                    UrediSatnicu openUrediSatnicu = new UrediSatnicu(findUposenik[listBoxPronađeniRezultati.SelectedIndex]);
+                    this.Close();
+                    openUrediSatnicu.Show();
+                }
+                else if(formID == 2)
+                {
+                    IspisiSatnicu openIspisiSatnicu = new IspisiSatnicu(findUposenik[listBoxPronađeniRezultati.SelectedIndex]);
+                    this.Close();
+                    openIspisiSatnicu.Show();
+                }
+                else if(formID == 3)
+                {
+                    UrediProfil openUrediProfil = new UrediProfil(findUposenik[listBoxPronađeniRezultati.SelectedIndex]);
+                    this.Close();
+                    openUrediProfil.Show();
+                }
             }
             catch
             {

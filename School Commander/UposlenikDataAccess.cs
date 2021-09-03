@@ -35,6 +35,73 @@ namespace School_Commander
             }
         }
 
+        public void Update(int uposlenikID,string ime, string prezime, string radnoMjesto)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Helper.ConnectionVal("SchoolCommander")))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = $"UPDATE Uposlenik SET ime = '{ime}', prezime = '{prezime}', radnoMjesto = '{radnoMjesto}' WHERE ID_Uposlenika = {uposlenikID}";
+                        command.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Promjene odrađene!", "Obavljeno!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        public List<Uposlenik> FindUposlenikByID(int ID)
+        {
+            try
+            {
+                List<Uposlenik> listUposlenik = new List<Uposlenik>();
+                using (SqlConnection connection = new SqlConnection(Helper.ConnectionVal("SchoolCommander")))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = $"SELECT * FROM Uposlenik WHERE Uposlenik.ID_uposlenika = {ID}";
+                        SqlDataReader dataReader = command.ExecuteReader();
+
+                        if (dataReader.Read())
+                        {
+                            Uposlenik uposlenik = new Uposlenik();
+
+                            uposlenik.ID_uposlenika = (int)dataReader["ID_uposlenika"];
+                            uposlenik.ime = dataReader["ime"].ToString();
+                            uposlenik.prezime = dataReader["prezime"].ToString();
+                            uposlenik.radnoMjesto = dataReader["radnoMjesto"].ToString();
+
+                            listUposlenik.Add(uposlenik);
+                        }
+                        else
+                        {
+                            listUposlenik = null;
+                        }
+                        dataReader.Close();
+                    }
+                    connection.Close();
+
+                    return listUposlenik;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
+
         public List<Uposlenik> FindUposlenikByFirstNameAndALastName(string ime, string prezime)
         {
             try
