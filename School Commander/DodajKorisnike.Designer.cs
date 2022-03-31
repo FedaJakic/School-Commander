@@ -108,7 +108,7 @@ namespace School_Commander
             this.checkedListBoxKorisnici.FormattingEnabled = true;
             this.checkedListBoxKorisnici.Location = new System.Drawing.Point(253, 13);
             this.checkedListBoxKorisnici.Name = "checkedListBoxKorisnici";
-            this.checkedListBoxKorisnici.Size = new System.Drawing.Size(293, 424);
+            this.checkedListBoxKorisnici.Size = new System.Drawing.Size(293, 418);
             this.checkedListBoxKorisnici.TabIndex = 2;
             // 
             // btnNatrag
@@ -152,9 +152,10 @@ namespace School_Commander
             this.Controls.Add(this.btnNatrag);
             this.Controls.Add(this.checkedListBoxKorisnici);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodajKorisnike";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DodajKorisnike";
+            this.Text = "Dodaj korisnike";
             this.Load += new System.EventHandler(this.DodajKorisnike_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

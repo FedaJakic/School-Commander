@@ -48,6 +48,7 @@ namespace School_Commander
         {
             labelImePrezimeUposlenika.Text = uposlenici.FirstOrDefault().GetFullName();
             labelRadnoMjesto.Text = uposlenici.FirstOrDefault().radnoMjesto;
+            PopulateComboBox();
             SetParamatersOnLoad();
         }
 
@@ -79,6 +80,26 @@ namespace School_Commander
             MessageBox.Show($"Za datum {monthCalendarKalendarSatnice.SelectionStart.Date.ToString("dd.MM.yyyy.")} nije uneseno radno vrijeme korisniku {uposlenici.First().GetFullName()}", "Satnica nije pronađena!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //for TextChangeEvent
             isNotFirstTime = true;
+        }
+
+        private void PopulateComboBox()
+        {
+            FilteriSatniceDataAccess filteriSatniceDataAccess = new FilteriSatniceDataAccess();
+            List<FilteriSatnice> filteriSatnice = new List<FilteriSatnice>();
+
+            filteriSatnice = filteriSatniceDataAccess.PopulateComboBox();
+
+            if (filteriSatnice == null)
+            {
+                this.Close();
+            }
+            else
+            {
+                foreach (var filter in filteriSatnice)
+                {
+                    comboBoxPrimjeniOvuSatnicuNa.Items.Add(filter.nazivFiltera.ToString());
+                }
+            }
         }
 
         private void SetParamatersOnLoad()
@@ -231,50 +252,64 @@ namespace School_Commander
 
         private int NumberOfIterration(string stringIterration)
         {
-            if (stringIterration == "na još 1 dan")
+            FilteriSatniceDataAccess filteriSatniceDataAccess = new FilteriSatniceDataAccess();
+
+            int filterIncrement = filteriSatniceDataAccess.GetNumberOfIterration(stringIterration);
+
+            if(filterIncrement != 404)
             {
-                return 1;
-            }
-            else if (stringIterration == "na još 2 dana")
-            {
-                return 2;
-            }
-            else if (stringIterration == "na još 3 dana")
-            {
-                return 3;
-            }
-            else if (stringIterration == "na još 4 dana")
-            {
-                return 4;
-            }
-            else if (stringIterration == "na 2 sedmice")
-            {
-                return 9;
-            }
-            else if (stringIterration == "na 4 sedmice")
-            {
-                return 19;
-            }
-            else if (stringIterration == "na isti dan u idućem tjednu")
-            {
-                return 10;
-            }
-            else if (stringIterration == "na isti dan u iduća 3 tjedna")
-            {
-                return 20;
-            }
-            else if (stringIterration == "na isti dan u iduća 4 tjedna")
-            {
-                return 30;
-            }
-            else if (stringIterration == "uposlenik nije radio, imao je zamjenu")
-            {
-                return 101;
+                return filterIncrement;
             }
             else
             {
+                MessageBox.Show("Grešska u bazi podataka! Ugasite program.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
+
+            //if (stringIterration == "na još 1 dan")
+            //{
+            //    return 1;
+            //}
+            //else if (stringIterration == "na još 2 dana")
+            //{
+            //    return 2;
+            //}
+            //else if (stringIterration == "na još 3 dana")
+            //{
+            //    return 3;
+            //}
+            //else if (stringIterration == "na još 4 dana")
+            //{
+            //    return 4;
+            //}
+            //else if (stringIterration == "na 2 sedmice")
+            //{
+            //    return 9;
+            //}
+            //else if (stringIterration == "na 4 sedmice")
+            //{
+            //    return 19;
+            //}
+            //else if (stringIterration == "na isti dan u idućem tjednu")
+            //{
+            //    return 10;
+            //}
+            //else if (stringIterration == "na isti dan u iduća 3 tjedna")
+            //{
+            //    return 20;
+            //}
+            //else if (stringIterration == "na isti dan u iduća 4 tjedna")
+            //{
+            //    return 30;
+            //}
+            //else if (stringIterration == "uposlenik nije radio, imao je zamjenu")
+            //{
+            //    return 101;
+            //}
+            //else
+            //{
+            //    return 0;
+            //}
         }
 
         private void InsertElemntsIntoDatabase(List<Uposlenik> uposlenici, string nacinRada)
@@ -327,6 +362,37 @@ namespace School_Commander
 
                     satnicaDataAccess.Delete(uposlenik.ID_uposlenika, monthCalendarKalendarSatnice.SelectionStart.Date);
                     SetParamatersOnLoad();
+                }
+                else if(iterration == 31) //filter do kraja mjeseca
+                {
+                    int numOfDaysInMonth = DateTime.DaysInMonth(monthCalendarKalendarSatnice.SelectionStart.Year, monthCalendarKalendarSatnice.SelectionStart.Month);
+                    int numOfRemainingDaysInMonth = numOfDaysInMonth - monthCalendarKalendarSatnice.SelectionStart.Day;
+
+                    for(int i = 0; i < numOfRemainingDaysInMonth; i++)
+                    {
+                        if (satnicaDataAccess.FindSatnicaByIDandDate(uposlenik.ID_uposlenika, dateToIterrate.Date).Count == 0)
+                        {
+                            satnicaDataAccess.Insert(uposlenik.ID_uposlenika, dateToIterrate.Date, nacinRada.ToString(), Convert.ToDecimal(textBoxOd.Text), Convert.ToDecimal(textBoxDo.Text), Convert.ToDecimal(textBoxUkupnoDnevnoRadnoVrijeme.Text),
+                            Convert.ToDecimal(textBoxNocniRad.Text), Convert.ToDecimal(textBoxPrekovremeniRad.Text), Convert.ToDecimal(textBoxRadNedjeljom.Text), Convert.ToDecimal(textBoxRadZaPraznik.Text),
+                            Convert.ToDecimal(textBoxGodisnjiOdmor.Text), Convert.ToDecimal(textBoxBolovanje.Text), Convert.ToDecimal(textBoxDopustPN.Text), Convert.ToDecimal(textBoxNapomena.Text), textBoxPosebneNapomene.Text, Convert.ToDecimal(textBoxUkupnoSati.Text));
+                        }
+                        else
+                        {
+                            satnicaDataAccess.Update(uposlenik.ID_uposlenika, dateToIterrate.Date, nacinRada.ToString(), Convert.ToDecimal(textBoxOd.Text), Convert.ToDecimal(textBoxDo.Text), Convert.ToDecimal(textBoxUkupnoDnevnoRadnoVrijeme.Text),
+                            Convert.ToDecimal(textBoxNocniRad.Text), Convert.ToDecimal(textBoxPrekovremeniRad.Text), Convert.ToDecimal(textBoxRadNedjeljom.Text), Convert.ToDecimal(textBoxRadZaPraznik.Text),
+                            Convert.ToDecimal(textBoxGodisnjiOdmor.Text), Convert.ToDecimal(textBoxBolovanje.Text), Convert.ToDecimal(textBoxDopustPN.Text), Convert.ToDecimal(textBoxNapomena.Text), textBoxPosebneNapomene.Text, Convert.ToDecimal(textBoxUkupnoSati.Text));
+                        }
+
+                        if (iterration != 0)
+                        {
+                            dateToIterrate = dateToIterrate.AddDays(1);
+                            string temp = dateToIterrate.DayOfWeek.ToString();
+                            if (dateToIterrate.DayOfWeek.ToString() == "Saturday" || dateToIterrate.DayOfWeek.ToString() == "Sunday")
+                            {
+                                dateToIterrate = dateToIterrate.AddDays(2);
+                            }
+                        }
+                    }
                 }
                 else
                 {
@@ -459,52 +525,68 @@ namespace School_Commander
             openDodajKorisnike.Show();
         }
 
-        private void textBoxDo_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (isNotFirstTime)
-                {
-                    decimal timeOd = Convert.ToDecimal(textBoxOd.Text.ToString());
-                    decimal timeDo = Convert.ToDecimal(textBoxDo.Text.ToString());
-                    if (timeOd > timeDo)
-                    {
-                        textBoxUkupnoDnevnoRadnoVrijeme.Text = ((Convert.ToDecimal(textBoxDo.Text.ToString()) + 12) - (Convert.ToDecimal(textBoxOd.Text.ToString()) - 12)).ToString();
+        //private void textBoxDo_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (isNotFirstTime)
+        //        {
+        //            decimal timeOd = Convert.ToDecimal(textBoxOd.Text.ToString());
+        //            decimal timeDo = Convert.ToDecimal(textBoxDo.Text.ToString());
+        //            if (timeOd > timeDo)
+        //            {
+        //                textBoxUkupnoDnevnoRadnoVrijeme.Text = ((Convert.ToDecimal(textBoxDo.Text.ToString()) + 12) - (Convert.ToDecimal(textBoxOd.Text.ToString()) - 12)).ToString();
 
-                    }
-                    else
-                    {
-                        textBoxUkupnoDnevnoRadnoVrijeme.Text = (Convert.ToDecimal(textBoxDo.Text.ToString()) - Convert.ToDecimal(textBoxOd.Text.ToString())).ToString();
-                    }
-                }
-            }
-            catch
-            {
-                //MessageBox.Show("Možete koristit samo numeričke znakove! Vrijeme pišite u formatu [sat.min]", "Greška formata unosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TextBox textBox = sender as TextBox;
-                textBox.Text = "";
-            }
+        //            }
+        //            else
+        //            {
+        //                textBoxUkupnoDnevnoRadnoVrijeme.Text = (Convert.ToDecimal(textBoxDo.Text.ToString()) - Convert.ToDecimal(textBoxOd.Text.ToString())).ToString();
+        //            }
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        //MessageBox.Show("Možete koristit samo numeričke znakove! Vrijeme pišite u formatu [sat.min]", "Greška formata unosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        TextBox textBox = sender as TextBox;
+        //        textBox.Text = "";
+        //    }
 
-}
+        //}
 
-        private void textBoxUkupnoDnevnoRadnoVrijeme_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (isNotFirstTime)
-                {
-                    textBoxUkupnoSati.Text = (Convert.ToDecimal(textBoxUkupnoDnevnoRadnoVrijeme.Text.ToString()) + Convert.ToDecimal(textBoxNocniRad.Text.ToString()) + Convert.ToDecimal(textBoxPrekovremeniRad.Text.ToString()) + Convert.ToDecimal(textBoxRadNedjeljom.Text.ToString()) + Convert.ToDecimal(textBoxRadZaPraznik.Text.ToString()) + Convert.ToDecimal(textBoxGodisnjiOdmor.Text.ToString()) + Convert.ToDecimal(textBoxBolovanje.Text.ToString()) + Convert.ToDecimal(textBoxDopustPN.Text.ToString())).ToString();
-                }
-            }
-            catch
-            {
-                //MessageBox.Show("Možete koristit samo numeričke znakove! Vrijeme pišite u formatu [sat.min]", "Greška formata unosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TextBox textBox = sender as TextBox;
-                textBox.Text = "";
-            }
+        //private void textBoxUkupnoDnevnoRadnoVrijeme_TextChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (isNotFirstTime)
+        //        {
+        //            textBoxUkupnoSati.Text = (Convert.ToDecimal(textBoxUkupnoDnevnoRadnoVrijeme.Text.ToString()) + Convert.ToDecimal(textBoxNocniRad.Text.ToString()) + Convert.ToDecimal(textBoxPrekovremeniRad.Text.ToString()) + Convert.ToDecimal(textBoxRadNedjeljom.Text.ToString()) + Convert.ToDecimal(textBoxRadZaPraznik.Text.ToString()) + Convert.ToDecimal(textBoxGodisnjiOdmor.Text.ToString()) + Convert.ToDecimal(textBoxBolovanje.Text.ToString()) + Convert.ToDecimal(textBoxDopustPN.Text.ToString())).ToString();
+        //        }
+        //    }
+        //    catch
+        //    {
+        //        //MessageBox.Show("Možete koristit samo numeričke znakove! Vrijeme pišite u formatu [sat.min]", "Greška formata unosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        TextBox textBox = sender as TextBox;
+        //        textBox.Text = "";
+        //    }
 
-        }
+        //}
 
         #endregion
+
+        private void checkBoxVremenski_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxVremenski.Checked)
+                checkBoxPoRasporedu.Checked = false;
+            else
+                checkBoxPoRasporedu.Checked = true;
+        }
+
+        private void checkBoxPoRasporedu_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxPoRasporedu.Checked)
+                checkBoxVremenski.Checked = false;
+            else
+                checkBoxVremenski.Checked = true;
+        }
     }
 }

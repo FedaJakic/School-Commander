@@ -43,7 +43,8 @@ namespace School_Commander
             this.monthCalendarDo = new System.Windows.Forms.MonthCalendar();
             this.btnIspisiSatnicu = new FontAwesome.Sharp.IconButton();
             this.iconButtonNazad = new FontAwesome.Sharp.IconButton();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.labelProgressBar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -113,7 +114,7 @@ namespace School_Commander
             this.labelRadnoMjesto.AutoSize = true;
             this.labelRadnoMjesto.Font = new System.Drawing.Font("Marlett", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRadnoMjesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.labelRadnoMjesto.Location = new System.Drawing.Point(571, 62);
+            this.labelRadnoMjesto.Location = new System.Drawing.Point(253, 31);
             this.labelRadnoMjesto.Name = "labelRadnoMjesto";
             this.labelRadnoMjesto.Size = new System.Drawing.Size(98, 18);
             this.labelRadnoMjesto.TabIndex = 8;
@@ -124,11 +125,12 @@ namespace School_Commander
             this.labelImePrezimeUposlenika.AutoSize = true;
             this.labelImePrezimeUposlenika.Font = new System.Drawing.Font("Marlett", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelImePrezimeUposlenika.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.labelImePrezimeUposlenika.Location = new System.Drawing.Point(513, 40);
+            this.labelImePrezimeUposlenika.Location = new System.Drawing.Point(252, 9);
             this.labelImePrezimeUposlenika.Name = "labelImePrezimeUposlenika";
             this.labelImePrezimeUposlenika.Size = new System.Drawing.Size(218, 22);
             this.labelImePrezimeUposlenika.TabIndex = 7;
             this.labelImePrezimeUposlenika.Text = "ime i prezime uposlenika";
+            this.labelImePrezimeUposlenika.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelIspisiDo
             // 
@@ -196,12 +198,24 @@ namespace School_Commander
             this.iconButtonNazad.UseVisualStyleBackColor = true;
             this.iconButtonNazad.Click += new System.EventHandler(this.iconButtonNazad_Click);
             // 
-            // progressBar1
+            // progressBar
             // 
-            this.progressBar1.Location = new System.Drawing.Point(517, 576);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(214, 23);
-            this.progressBar1.TabIndex = 44;
+            this.progressBar.Location = new System.Drawing.Point(517, 576);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(214, 23);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.progressBar.TabIndex = 44;
+            // 
+            // labelProgressBar
+            // 
+            this.labelProgressBar.AutoSize = true;
+            this.labelProgressBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelProgressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.labelProgressBar.Location = new System.Drawing.Point(513, 602);
+            this.labelProgressBar.Name = "labelProgressBar";
+            this.labelProgressBar.Size = new System.Drawing.Size(99, 24);
+            this.labelProgressBar.TabIndex = 45;
+            this.labelProgressBar.Text = "progress...";
             // 
             // IspisiSatnicu
             // 
@@ -209,7 +223,8 @@ namespace School_Commander
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.ClientSize = new System.Drawing.Size(1008, 679);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.labelProgressBar);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.iconButtonNazad);
             this.Controls.Add(this.btnIspisiSatnicu);
             this.Controls.Add(this.monthCalendarDo);
@@ -219,9 +234,10 @@ namespace School_Commander
             this.Controls.Add(this.labelRadnoMjesto);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.labelImePrezimeUposlenika);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "IspisiSatnicu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IspisiSatnicu";
+            this.Text = "Ispiši satnicu";
             this.Load += new System.EventHandler(this.IspisiSatnicu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -247,6 +263,7 @@ namespace School_Commander
         private System.Windows.Forms.MonthCalendar monthCalendarDo;
         private FontAwesome.Sharp.IconButton btnIspisiSatnicu;
         private FontAwesome.Sharp.IconButton iconButtonNazad;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label labelProgressBar;
     }
 }

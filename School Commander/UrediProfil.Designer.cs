@@ -249,9 +249,10 @@ namespace School_Commander
             this.Controls.Add(this.labelIme);
             this.Controls.Add(this.textBoxIme);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UrediProfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UrediProfil";
+            this.Text = "Uredi profil";
             this.Load += new System.EventHandler(this.UrediProfil_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

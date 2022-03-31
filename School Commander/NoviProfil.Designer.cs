@@ -31,6 +31,8 @@ namespace School_Commander
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoviProfil));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.labelNoviProfil = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxIme = new System.Windows.Forms.TextBox();
@@ -44,167 +46,23 @@ namespace School_Commander
             this.comboBoxRadnoMjesto2 = new System.Windows.Forms.ComboBox();
             this.btnSpremi = new FontAwesome.Sharp.IconButton();
             this.btnOdustani = new FontAwesome.Sharp.IconButton();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.labelNoviProfil = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(214)))), ((int)(((byte)(114)))));
             this.panel1.Controls.Add(this.iconPictureBox1);
             this.panel1.Controls.Add(this.labelNoviProfil);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(246, 681);
             this.panel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Marlett", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.label2.Location = new System.Drawing.Point(50, 636);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "School Commander";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(39, 455);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // textBoxIme
-            // 
-            this.textBoxIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIme.Location = new System.Drawing.Point(477, 157);
-            this.textBoxIme.Name = "textBoxIme";
-            this.textBoxIme.Size = new System.Drawing.Size(299, 29);
-            this.textBoxIme.TabIndex = 1;
-            // 
-            // labelIme
-            // 
-            this.labelIme.AutoSize = true;
-            this.labelIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.labelIme.Location = new System.Drawing.Point(476, 134);
-            this.labelIme.Name = "labelIme";
-            this.labelIme.Size = new System.Drawing.Size(40, 20);
-            this.labelIme.TabIndex = 2;
-            this.labelIme.Text = "Ime:";
-            // 
-            // labelPrezime
-            // 
-            this.labelPrezime.AutoSize = true;
-            this.labelPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrezime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.labelPrezime.Location = new System.Drawing.Point(477, 214);
-            this.labelPrezime.Name = "labelPrezime";
-            this.labelPrezime.Size = new System.Drawing.Size(70, 20);
-            this.labelPrezime.TabIndex = 6;
-            this.labelPrezime.Text = "Prezime:";
-            // 
-            // textBoxPrezime
-            // 
-            this.textBoxPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrezime.Location = new System.Drawing.Point(477, 237);
-            this.textBoxPrezime.Name = "textBoxPrezime";
-            this.textBoxPrezime.Size = new System.Drawing.Size(299, 29);
-            this.textBoxPrezime.TabIndex = 7;
-            // 
-            // comboBoxRadnoMjesto
-            // 
-            this.comboBoxRadnoMjesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxRadnoMjesto.FormattingEnabled = true;
-            this.comboBoxRadnoMjesto.Location = new System.Drawing.Point(477, 317);
-            this.comboBoxRadnoMjesto.Name = "comboBoxRadnoMjesto";
-            this.comboBoxRadnoMjesto.Size = new System.Drawing.Size(299, 32);
-            this.comboBoxRadnoMjesto.TabIndex = 8;
-            // 
-            // labelRadnoMjesto
-            // 
-            this.labelRadnoMjesto.AutoSize = true;
-            this.labelRadnoMjesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRadnoMjesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.labelRadnoMjesto.Location = new System.Drawing.Point(476, 294);
-            this.labelRadnoMjesto.Name = "labelRadnoMjesto";
-            this.labelRadnoMjesto.Size = new System.Drawing.Size(112, 20);
-            this.labelRadnoMjesto.TabIndex = 9;
-            this.labelRadnoMjesto.Text = "Radno mjesto:";
-            // 
-            // checkBoxObavljaDvaRadnaMjesta
-            // 
-            this.checkBoxObavljaDvaRadnaMjesta.AutoSize = true;
-            this.checkBoxObavljaDvaRadnaMjesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxObavljaDvaRadnaMjesta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.checkBoxObavljaDvaRadnaMjesta.Location = new System.Drawing.Point(478, 377);
-            this.checkBoxObavljaDvaRadnaMjesta.Name = "checkBoxObavljaDvaRadnaMjesta";
-            this.checkBoxObavljaDvaRadnaMjesta.Size = new System.Drawing.Size(202, 24);
-            this.checkBoxObavljaDvaRadnaMjesta.TabIndex = 10;
-            this.checkBoxObavljaDvaRadnaMjesta.Text = "obavlja dva radna mjesta";
-            this.checkBoxObavljaDvaRadnaMjesta.UseVisualStyleBackColor = true;
-            this.checkBoxObavljaDvaRadnaMjesta.CheckedChanged += new System.EventHandler(this.checkBoxObavljaDvaRadnaMjesta_CheckedChanged);
-            // 
-            // labelRadnoMjesto2
-            // 
-            this.labelRadnoMjesto2.AutoSize = true;
-            this.labelRadnoMjesto2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRadnoMjesto2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.labelRadnoMjesto2.Location = new System.Drawing.Point(476, 422);
-            this.labelRadnoMjesto2.Name = "labelRadnoMjesto2";
-            this.labelRadnoMjesto2.Size = new System.Drawing.Size(112, 20);
-            this.labelRadnoMjesto2.TabIndex = 12;
-            this.labelRadnoMjesto2.Text = "Radno mjesto:";
-            // 
-            // comboBoxRadnoMjesto2
-            // 
-            this.comboBoxRadnoMjesto2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxRadnoMjesto2.FormattingEnabled = true;
-            this.comboBoxRadnoMjesto2.Location = new System.Drawing.Point(477, 445);
-            this.comboBoxRadnoMjesto2.Name = "comboBoxRadnoMjesto2";
-            this.comboBoxRadnoMjesto2.Size = new System.Drawing.Size(299, 32);
-            this.comboBoxRadnoMjesto2.TabIndex = 11;
-            // 
-            // btnSpremi
-            // 
-            this.btnSpremi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSpremi.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSpremi.IconColor = System.Drawing.Color.Green;
-            this.btnSpremi.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSpremi.IconSize = 24;
-            this.btnSpremi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSpremi.Location = new System.Drawing.Point(661, 553);
-            this.btnSpremi.Name = "btnSpremi";
-            this.btnSpremi.Size = new System.Drawing.Size(115, 31);
-            this.btnSpremi.TabIndex = 13;
-            this.btnSpremi.Text = "Spremi";
-            this.btnSpremi.UseVisualStyleBackColor = true;
-            this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
-            // 
-            // btnOdustani
-            // 
-            this.btnOdustani.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOdustani.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnOdustani.IconColor = System.Drawing.Color.Black;
-            this.btnOdustani.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOdustani.Location = new System.Drawing.Point(477, 553);
-            this.btnOdustani.Name = "btnOdustani";
-            this.btnOdustani.Size = new System.Drawing.Size(115, 31);
-            this.btnOdustani.TabIndex = 14;
-            this.btnOdustani.Text = "Odustani";
-            this.btnOdustani.UseVisualStyleBackColor = true;
-            this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
             // 
             // iconPictureBox1
             // 
@@ -230,6 +88,171 @@ namespace School_Commander
             this.labelNoviProfil.TabIndex = 7;
             this.labelNoviProfil.Text = "Novi profil";
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Marlett", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.label2.Location = new System.Drawing.Point(50, 636);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(161, 19);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "School Commander";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(39, 455);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(168, 162);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBoxIme
+            // 
+            this.textBoxIme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIme.Location = new System.Drawing.Point(477, 157);
+            this.textBoxIme.Name = "textBoxIme";
+            this.textBoxIme.Size = new System.Drawing.Size(299, 29);
+            this.textBoxIme.TabIndex = 1;
+            // 
+            // labelIme
+            // 
+            this.labelIme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelIme.AutoSize = true;
+            this.labelIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.labelIme.Location = new System.Drawing.Point(476, 134);
+            this.labelIme.Name = "labelIme";
+            this.labelIme.Size = new System.Drawing.Size(40, 20);
+            this.labelIme.TabIndex = 2;
+            this.labelIme.Text = "Ime:";
+            // 
+            // labelPrezime
+            // 
+            this.labelPrezime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelPrezime.AutoSize = true;
+            this.labelPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrezime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.labelPrezime.Location = new System.Drawing.Point(477, 214);
+            this.labelPrezime.Name = "labelPrezime";
+            this.labelPrezime.Size = new System.Drawing.Size(70, 20);
+            this.labelPrezime.TabIndex = 6;
+            this.labelPrezime.Text = "Prezime:";
+            // 
+            // textBoxPrezime
+            // 
+            this.textBoxPrezime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrezime.Location = new System.Drawing.Point(477, 237);
+            this.textBoxPrezime.Name = "textBoxPrezime";
+            this.textBoxPrezime.Size = new System.Drawing.Size(299, 29);
+            this.textBoxPrezime.TabIndex = 7;
+            // 
+            // comboBoxRadnoMjesto
+            // 
+            this.comboBoxRadnoMjesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxRadnoMjesto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxRadnoMjesto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxRadnoMjesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRadnoMjesto.FormattingEnabled = true;
+            this.comboBoxRadnoMjesto.Location = new System.Drawing.Point(477, 317);
+            this.comboBoxRadnoMjesto.Name = "comboBoxRadnoMjesto";
+            this.comboBoxRadnoMjesto.Size = new System.Drawing.Size(299, 32);
+            this.comboBoxRadnoMjesto.TabIndex = 8;
+            // 
+            // labelRadnoMjesto
+            // 
+            this.labelRadnoMjesto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelRadnoMjesto.AutoSize = true;
+            this.labelRadnoMjesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRadnoMjesto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.labelRadnoMjesto.Location = new System.Drawing.Point(476, 294);
+            this.labelRadnoMjesto.Name = "labelRadnoMjesto";
+            this.labelRadnoMjesto.Size = new System.Drawing.Size(112, 20);
+            this.labelRadnoMjesto.TabIndex = 9;
+            this.labelRadnoMjesto.Text = "Radno mjesto:";
+            // 
+            // checkBoxObavljaDvaRadnaMjesta
+            // 
+            this.checkBoxObavljaDvaRadnaMjesta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxObavljaDvaRadnaMjesta.AutoSize = true;
+            this.checkBoxObavljaDvaRadnaMjesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxObavljaDvaRadnaMjesta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.checkBoxObavljaDvaRadnaMjesta.Location = new System.Drawing.Point(478, 377);
+            this.checkBoxObavljaDvaRadnaMjesta.Name = "checkBoxObavljaDvaRadnaMjesta";
+            this.checkBoxObavljaDvaRadnaMjesta.Size = new System.Drawing.Size(202, 24);
+            this.checkBoxObavljaDvaRadnaMjesta.TabIndex = 10;
+            this.checkBoxObavljaDvaRadnaMjesta.Text = "obavlja dva radna mjesta";
+            this.checkBoxObavljaDvaRadnaMjesta.UseVisualStyleBackColor = true;
+            this.checkBoxObavljaDvaRadnaMjesta.CheckedChanged += new System.EventHandler(this.checkBoxObavljaDvaRadnaMjesta_CheckedChanged);
+            // 
+            // labelRadnoMjesto2
+            // 
+            this.labelRadnoMjesto2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelRadnoMjesto2.AutoSize = true;
+            this.labelRadnoMjesto2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRadnoMjesto2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.labelRadnoMjesto2.Location = new System.Drawing.Point(476, 422);
+            this.labelRadnoMjesto2.Name = "labelRadnoMjesto2";
+            this.labelRadnoMjesto2.Size = new System.Drawing.Size(112, 20);
+            this.labelRadnoMjesto2.TabIndex = 12;
+            this.labelRadnoMjesto2.Text = "Radno mjesto:";
+            // 
+            // comboBoxRadnoMjesto2
+            // 
+            this.comboBoxRadnoMjesto2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxRadnoMjesto2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxRadnoMjesto2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBoxRadnoMjesto2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRadnoMjesto2.FormattingEnabled = true;
+            this.comboBoxRadnoMjesto2.Location = new System.Drawing.Point(477, 445);
+            this.comboBoxRadnoMjesto2.Name = "comboBoxRadnoMjesto2";
+            this.comboBoxRadnoMjesto2.Size = new System.Drawing.Size(299, 32);
+            this.comboBoxRadnoMjesto2.TabIndex = 11;
+            // 
+            // btnSpremi
+            // 
+            this.btnSpremi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSpremi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpremi.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSpremi.IconColor = System.Drawing.Color.Green;
+            this.btnSpremi.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSpremi.IconSize = 24;
+            this.btnSpremi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSpremi.Location = new System.Drawing.Point(661, 553);
+            this.btnSpremi.Name = "btnSpremi";
+            this.btnSpremi.Size = new System.Drawing.Size(115, 31);
+            this.btnSpremi.TabIndex = 13;
+            this.btnSpremi.Text = "Spremi";
+            this.btnSpremi.UseVisualStyleBackColor = true;
+            this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
+            // 
+            // btnOdustani
+            // 
+            this.btnOdustani.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOdustani.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOdustani.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnOdustani.IconColor = System.Drawing.Color.Black;
+            this.btnOdustani.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOdustani.Location = new System.Drawing.Point(477, 553);
+            this.btnOdustani.Name = "btnOdustani";
+            this.btnOdustani.Size = new System.Drawing.Size(115, 31);
+            this.btnOdustani.TabIndex = 14;
+            this.btnOdustani.Text = "Odustani";
+            this.btnOdustani.UseVisualStyleBackColor = true;
+            this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
+            // 
             // NoviProfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,14 +271,15 @@ namespace School_Commander
             this.Controls.Add(this.labelIme);
             this.Controls.Add(this.textBoxIme);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoviProfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NoviProfil";
+            this.Text = "Novi profil";
             this.Load += new System.EventHandler(this.NoviProfil_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

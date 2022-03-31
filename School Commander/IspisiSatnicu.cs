@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace School_Commander
@@ -24,6 +25,8 @@ namespace School_Commander
         {
             labelImePrezimeUposlenika.Text = uposlenik.GetFullName();
             labelRadnoMjesto.Text = uposlenik.radnoMjesto;
+            labelProgressBar.Text = "";
+            progressBar.Visible = false;
         }
 
         private void btnIspisiSatnicu_Click(object sender, EventArgs e)
@@ -32,9 +35,33 @@ namespace School_Commander
             if (dialogResult == DialogResult.Yes)
             {
                 CreateTemplateInWord createTemplateInWord = new CreateTemplateInWord();
-                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-                createTemplateInWord.CreateWordDocument($"{desktopPath}\\Satnica_Exmp.docx", $"{desktopPath}\\{uposlenik.GetFullName()}_{monthCalendarOd.SelectionStart.Month}_{monthCalendarOd.SelectionStart.Year}.docx", uposlenik.ID_uposlenika, monthCalendarOd.SelectionStart.Date, monthCalendarDo.SelectionStart.Date);
+                int numOfMonths = GetNumberOfMonths(monthCalendarDo.SelectionStart, monthCalendarOd.SelectionStart);
+                DateTime startDate = monthCalendarOd.SelectionStart.Date;
+                DateTime endDate = monthCalendarDo.SelectionStart.Date;
+                DateTime currentDateInfo = startDate;
+                DateTime currentEndDateInfo = DateTime.Now;
+                int numOfDays = 0;
+
+                ProgressBarUpdates("Učitani datumi! Kreira se dokument", false);
+
+                for (int i = 0; i <= numOfMonths; i++)
+                {
+                    numOfDays =  DateTime.DaysInMonth(currentDateInfo.Year, currentDateInfo.Month);
+                    currentEndDateInfo = new DateTime(currentDateInfo.Year, currentDateInfo.Month, numOfDays);
+
+                    if(currentEndDateInfo.Date < endDate.Date)
+                    {
+                        createTemplateInWord.CreateWordDocument(GetExampleWord(), GetWordDocumentName(uposlenik.GetFullName(), currentDateInfo), uposlenik.ID_uposlenika, currentDateInfo, currentEndDateInfo, progressBar.Value);
+                        currentDateInfo = currentEndDateInfo.AddDays(1);
+                        ProgressBarUpdates($"Kreiran je {i+1}/{numOfMonths +1} dokument!\nKreira se idući dokument.", false);
+                    }
+                    else
+                    {
+                        createTemplateInWord.CreateWordDocument(GetExampleWord(), GetWordDocumentName(uposlenik.GetFullName(), currentDateInfo), uposlenik.ID_uposlenika, currentDateInfo, endDate, progressBar.Value);
+                        ProgressBarUpdates("Ispis završen! Možete nastaviti sa radom.", true);
+                    }
+                }
             }
         }
 
@@ -42,5 +69,49 @@ namespace School_Commander
         {
             this.Close();
         }
+
+        private string GetExampleWord()
+        {
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string pathOfExampleWordDocument = $"{desktopPath}\\Satnica_Exmp.docx";
+            return pathOfExampleWordDocument;
+        }
+
+        private string GetWordDocumentName(string name, DateTime dateTimeMjeseca)
+        {
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string nameOfFile = $"{uposlenik.GetFullName().ToString()}_{dateTimeMjeseca.Month.ToString()}_{dateTimeMjeseca.Year.ToString()}.docx";
+            string exmpWordDocumentName = $"{desktopPath}\\{nameOfFile}";
+            return exmpWordDocumentName;
+        }
+
+        private int GetNumberOfMonths(DateTime dateTimeOd, DateTime dateTimeDo)
+        {
+            return (dateTimeOd.Month - dateTimeDo.Month) + 12 * (dateTimeOd.Year - dateTimeDo.Year);
+        }
+
+
+
+        public void ProgressBarUpdates(string labelText, bool end)
+        {
+            progressBar.Visible = true;
+            if (end)
+            {
+                progressBar.Maximum = 100;
+                progressBar.Minimum = 0;
+                progressBar.Value = 100;
+                labelProgressBar.Text = labelText;
+                progressBar.Style = ProgressBarStyle.Continuous;
+                progressBar.MarqueeAnimationSpeed = 0;
+            }
+            else
+            {
+
+                progressBar.Style = ProgressBarStyle.Marquee;
+                progressBar.MarqueeAnimationSpeed = 50;
+                labelProgressBar.Text = labelText;
+            }
+            
+       }
     }
 }

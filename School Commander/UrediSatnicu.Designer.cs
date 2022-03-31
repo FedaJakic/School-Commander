@@ -191,6 +191,7 @@ namespace School_Commander
             this.checkBoxPoRasporedu.TabIndex = 11;
             this.checkBoxPoRasporedu.Text = "po rasporedu";
             this.checkBoxPoRasporedu.UseVisualStyleBackColor = true;
+            this.checkBoxPoRasporedu.CheckedChanged += new System.EventHandler(this.checkBoxPoRasporedu_CheckedChanged);
             // 
             // checkBoxVremenski
             // 
@@ -203,6 +204,7 @@ namespace School_Commander
             this.checkBoxVremenski.TabIndex = 12;
             this.checkBoxVremenski.Text = "vremenski";
             this.checkBoxVremenski.UseVisualStyleBackColor = true;
+            this.checkBoxVremenski.CheckedChanged += new System.EventHandler(this.checkBoxVremenski_CheckedChanged);
             // 
             // labelOd
             // 
@@ -221,7 +223,7 @@ namespace School_Commander
             this.textBoxOd.Name = "textBoxOd";
             this.textBoxOd.Size = new System.Drawing.Size(100, 20);
             this.textBoxOd.TabIndex = 14;
-            this.textBoxOd.TextChanged += new System.EventHandler(this.textBoxDo_TextChanged);
+            //this.textBoxOd.TextChanged += new System.EventHandler(this.textBoxDo_TextChanged);
             // 
             // textBoxDo
             // 
@@ -229,7 +231,7 @@ namespace School_Commander
             this.textBoxDo.Name = "textBoxDo";
             this.textBoxDo.Size = new System.Drawing.Size(100, 20);
             this.textBoxDo.TabIndex = 16;
-            this.textBoxDo.TextChanged += new System.EventHandler(this.textBoxDo_TextChanged);
+            //this.textBoxDo.TextChanged += new System.EventHandler(this.textBoxDo_TextChanged);
             // 
             // labelDo
             // 
@@ -259,7 +261,7 @@ namespace School_Commander
             this.textBoxUkupnoDnevnoRadnoVrijeme.Name = "textBoxUkupnoDnevnoRadnoVrijeme";
             this.textBoxUkupnoDnevnoRadnoVrijeme.Size = new System.Drawing.Size(158, 20);
             this.textBoxUkupnoDnevnoRadnoVrijeme.TabIndex = 18;
-            this.textBoxUkupnoDnevnoRadnoVrijeme.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
+            //this.textBoxUkupnoDnevnoRadnoVrijeme.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
             // 
             // textBoxNocniRad
             // 
@@ -267,7 +269,7 @@ namespace School_Commander
             this.textBoxNocniRad.Name = "textBoxNocniRad";
             this.textBoxNocniRad.Size = new System.Drawing.Size(100, 20);
             this.textBoxNocniRad.TabIndex = 20;
-            this.textBoxNocniRad.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
+            //this.textBoxNocniRad.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
             // 
             // labelNocniRad
             // 
@@ -286,7 +288,7 @@ namespace School_Commander
             this.textBoxPrekovremeniRad.Name = "textBoxPrekovremeniRad";
             this.textBoxPrekovremeniRad.Size = new System.Drawing.Size(100, 20);
             this.textBoxPrekovremeniRad.TabIndex = 22;
-            this.textBoxPrekovremeniRad.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
+            //this.textBoxPrekovremeniRad.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
             // 
             // labelPrekovremeniRad
             // 
@@ -305,7 +307,7 @@ namespace School_Commander
             this.textBoxRadNedjeljom.Name = "textBoxRadNedjeljom";
             this.textBoxRadNedjeljom.Size = new System.Drawing.Size(100, 20);
             this.textBoxRadNedjeljom.TabIndex = 24;
-            this.textBoxRadNedjeljom.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
+            //this.textBoxRadNedjeljom.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
             // 
             // labelRadNedjeljom
             // 
@@ -324,7 +326,7 @@ namespace School_Commander
             this.textBoxDopustPN.Name = "textBoxDopustPN";
             this.textBoxDopustPN.Size = new System.Drawing.Size(100, 20);
             this.textBoxDopustPN.TabIndex = 30;
-            this.textBoxDopustPN.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
+            //this.textBoxDopustPN.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
             // 
             // labelDopustPN
             // 
@@ -343,7 +345,7 @@ namespace School_Commander
             this.textBoxBolovanje.Name = "textBoxBolovanje";
             this.textBoxBolovanje.Size = new System.Drawing.Size(100, 20);
             this.textBoxBolovanje.TabIndex = 28;
-            this.textBoxBolovanje.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
+            //this.textBoxBolovanje.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
             // 
             // labelBolovanje
             // 
@@ -362,7 +364,7 @@ namespace School_Commander
             this.textBoxGodisnjiOdmor.Name = "textBoxGodisnjiOdmor";
             this.textBoxGodisnjiOdmor.Size = new System.Drawing.Size(100, 20);
             this.textBoxGodisnjiOdmor.TabIndex = 26;
-            this.textBoxGodisnjiOdmor.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
+            //this.textBoxGodisnjiOdmor.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
             // 
             // labelGodisnjiOdmor
             // 
@@ -389,9 +391,9 @@ namespace School_Commander
             this.labelNapomena.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.labelNapomena.Location = new System.Drawing.Point(553, 371);
             this.labelNapomena.Name = "labelNapomena";
-            this.labelNapomena.Size = new System.Drawing.Size(326, 20);
+            this.labelNapomena.Size = new System.Drawing.Size(335, 20);
             this.labelNapomena.TabIndex = 31;
-            this.labelNapomena.Text = "Napomen (Službeni put, terenski rad i slično):";
+            this.labelNapomena.Text = "Napomena (Službeni put, terenski rad i slično):";
             // 
             // labelPosebneNapomene
             // 
@@ -444,18 +446,6 @@ namespace School_Commander
             // comboBoxPrimjeniOvuSatnicuNa
             // 
             this.comboBoxPrimjeniOvuSatnicuNa.FormattingEnabled = true;
-            this.comboBoxPrimjeniOvuSatnicuNa.Items.AddRange(new object[] {
-            "",
-            "na još 1 dan",
-            "na još 2 dana",
-            "na još 3 dana",
-            "na još 4 dana",
-            "na 2 sedmice",
-            "na 4 sedmice",
-            "na isti dan u idućem tjednu",
-            "na isti dan u iduća 3 tjedna",
-            "na isti dan u iduća 4 tjedna",
-            "uposlenik nije radio, imao je zamjenu"});
             this.comboBoxPrimjeniOvuSatnicuNa.Location = new System.Drawing.Point(274, 291);
             this.comboBoxPrimjeniOvuSatnicuNa.Name = "comboBoxPrimjeniOvuSatnicuNa";
             this.comboBoxPrimjeniOvuSatnicuNa.Size = new System.Drawing.Size(236, 21);
@@ -519,7 +509,7 @@ namespace School_Commander
             this.textBoxRadZaPraznik.Name = "textBoxRadZaPraznik";
             this.textBoxRadZaPraznik.Size = new System.Drawing.Size(100, 20);
             this.textBoxRadZaPraznik.TabIndex = 44;
-            this.textBoxRadZaPraznik.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
+            //this.textBoxRadZaPraznik.TextChanged += new System.EventHandler(this.textBoxUkupnoDnevnoRadnoVrijeme_TextChanged);
             // 
             // labelRadZaPraznik
             // 
@@ -625,9 +615,10 @@ namespace School_Commander
             this.Controls.Add(this.labelImePrezimeUposlenika);
             this.Controls.Add(this.monthCalendarKalendarSatnice);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UrediSatnicu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UrediSatnicu";
+            this.Text = "Uredi satnicu";
             this.Load += new System.EventHandler(this.UrediSatnicu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

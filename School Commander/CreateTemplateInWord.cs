@@ -38,7 +38,7 @@ namespace School_Commander
                 ref matchControl);
         }
 
-        public void CreateWordDocument(object filename, object SaveAs, int ID_uposlenika, DateTime odDate, DateTime doDate)
+        public void CreateWordDocument(object filename, object SaveAs, int ID_uposlenika, DateTime odDate, DateTime doDate, int progressBarValue)
         {
             Word.Application wordApp = new Word.Application();
             object missing = Missing.Value;
@@ -58,7 +58,7 @@ namespace School_Commander
 
                 myWordDoc.Activate();
 
-                InserIntoWord(wordApp, ID_uposlenika, odDate, doDate);
+                InserIntoWord(wordApp, ID_uposlenika, odDate, doDate, progressBarValue);
             }
             else
             {
@@ -76,7 +76,7 @@ namespace School_Commander
             Console.WriteLine("File kreiran\n");
         }
 
-        private void InserIntoWord(Word.Application wordApp, int ID_Uposlenika, DateTime odDate, DateTime doDate)
+        private void InserIntoWord(Word.Application wordApp, int ID_Uposlenika, DateTime odDate, DateTime doDate, int progressbarValue)
         {
             List<Satnica> satnicaUposlenika = new List<Satnica>();
             List<Uposlenik> infoUposlenika = new List<Uposlenik>();
@@ -100,6 +100,8 @@ namespace School_Commander
             float ukupnoDopustPN = 0;
             float ukupnoNapomena = 0;
             float ukupnoSati = 0;
+
+            //IspisiSatnicu ispisiSatnicuFunction = new IspisiSatnicu(progressbarValue);
 
             while (i < satnicaUposlenika.Count)
             {
@@ -162,6 +164,7 @@ namespace School_Commander
 
                     ++i;
                     ++check;
+                    //ispisiSatnicuFunction.ProgressBarUpdates(1, $"Unos {i}. reda...", false);
                 }
             }
 
@@ -183,6 +186,8 @@ namespace School_Commander
                     this.FindAndReplace(wordApp, $"<us{j}>", "");
                 }
             }
+
+            //ispisiSatnicuFunction.ProgressBarUpdates(1, "Unos suma...", false);
 
             this.FindAndReplace(wordApp, "<ursuk1>", ukupnoDnevnoRadnoVrijeme);
             this.FindAndReplace(wordApp, "<ursnr1>", ukupnoNocniRad);

@@ -31,15 +31,13 @@ namespace School_Commander
             findUposenik.Clear();
         }
 
-        #endregion
-
-        private void btnTrazi_Click(object sender, EventArgs e)
+        private void SearchForEmployee()
         {
             listBoxPronađeniRezultati.Items.Clear();
             findUposenik.Clear();
             UposlenikDataAccess uposlenikDataAccess = new UposlenikDataAccess();
-            
-            if(Helper.IsEmpty(textBoxIme.Text.ToString()))
+
+            if (Helper.IsEmpty(textBoxIme.Text.ToString()))
             {
                 findUposenik = uposlenikDataAccess.FindUposlenikByLastName(textBoxPrezime.Text.ToString());
             }
@@ -52,26 +50,33 @@ namespace School_Commander
                 findUposenik = uposlenikDataAccess.FindUposlenikByFirstNameAndALastName(textBoxIme.Text.ToString(), textBoxPrezime.Text.ToString());
             }
 
-            
 
-            if(findUposenik == null)
+
+            if (findUposenik == null)
             {
                 MessageBox.Show("Ovaj prozor će se zatvorit!", "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ResetTexboxes();
                 this.Close();
             }
-            else if(findUposenik.Count == 0)
+            else if (findUposenik.Count == 0)
             {
                 MessageBox.Show("Nije pronađen nijedan korisnik sa ovim imenom i prezimenom", "Nema rezultata!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ResetTexboxes();
             }
             else
             {
-                foreach(var uposlenik in findUposenik)
+                foreach (var uposlenik in findUposenik)
                 {
                     listBoxPronađeniRezultati.Items.Add(uposlenik.GetFullName());
                 }
             }
+        }
+
+        #endregion
+
+        private void btnTrazi_Click(object sender, EventArgs e)
+        {
+            SearchForEmployee();
         }
 
         private void listBoxPronađeniRezultati_MouseDoubleClick(object sender, MouseEventArgs e)

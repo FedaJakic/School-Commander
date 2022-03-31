@@ -35,7 +35,6 @@ namespace School_Commander
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUrediProfil = new FontAwesome.Sharp.IconButton();
-            this.btnBazaPodataka = new FontAwesome.Sharp.IconButton();
             this.btnIzlaz = new FontAwesome.Sharp.IconButton();
             this.btnPomoc = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -80,7 +79,6 @@ namespace School_Commander
             // panel1
             // 
             this.panel1.Controls.Add(this.btnUrediProfil);
-            this.panel1.Controls.Add(this.btnBazaPodataka);
             this.panel1.Controls.Add(this.btnIzlaz);
             this.panel1.Controls.Add(this.btnPomoc);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -100,29 +98,12 @@ namespace School_Commander
             this.btnUrediProfil.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUrediProfil.Location = new System.Drawing.Point(246, 0);
             this.btnUrediProfil.Name = "btnUrediProfil";
-            this.btnUrediProfil.Size = new System.Drawing.Size(305, 220);
+            this.btnUrediProfil.Size = new System.Drawing.Size(515, 220);
             this.btnUrediProfil.TabIndex = 3;
             this.btnUrediProfil.Text = "Uredi profil\r\n";
             this.btnUrediProfil.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnUrediProfil.UseVisualStyleBackColor = false;
             this.btnUrediProfil.Click += new System.EventHandler(this.btnUrediProfil_Click);
-            // 
-            // btnBazaPodataka
-            // 
-            this.btnBazaPodataka.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(175)))), ((int)(((byte)(175)))));
-            this.btnBazaPodataka.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnBazaPodataka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBazaPodataka.Font = new System.Drawing.Font("Marlett", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBazaPodataka.IconChar = FontAwesome.Sharp.IconChar.Database;
-            this.btnBazaPodataka.IconColor = System.Drawing.Color.Black;
-            this.btnBazaPodataka.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBazaPodataka.Location = new System.Drawing.Point(551, 0);
-            this.btnBazaPodataka.Name = "btnBazaPodataka";
-            this.btnBazaPodataka.Size = new System.Drawing.Size(229, 220);
-            this.btnBazaPodataka.TabIndex = 2;
-            this.btnBazaPodataka.Text = "Baza podataka";
-            this.btnBazaPodataka.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnBazaPodataka.UseVisualStyleBackColor = false;
             // 
             // btnIzlaz
             // 
@@ -135,9 +116,9 @@ namespace School_Commander
             this.btnIzlaz.IconColor = System.Drawing.Color.Black;
             this.btnIzlaz.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnIzlaz.IconSize = 58;
-            this.btnIzlaz.Location = new System.Drawing.Point(780, 0);
+            this.btnIzlaz.Location = new System.Drawing.Point(761, 0);
             this.btnIzlaz.Name = "btnIzlaz";
-            this.btnIzlaz.Size = new System.Drawing.Size(228, 220);
+            this.btnIzlaz.Size = new System.Drawing.Size(247, 220);
             this.btnIzlaz.TabIndex = 1;
             this.btnIzlaz.Text = "Izlaz";
             this.btnIzlaz.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -258,7 +239,6 @@ namespace School_Commander
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnUrediProfil;
-        private FontAwesome.Sharp.IconButton btnBazaPodataka;
         private FontAwesome.Sharp.IconButton btnIzlaz;
         private FontAwesome.Sharp.IconButton btnPomoc;
         private System.Windows.Forms.Panel panel2;

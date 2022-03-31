@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace School_Commander
 {
@@ -18,9 +19,10 @@ namespace School_Commander
                 List<RadnaMjesta> listRadnaMjesta = new List<RadnaMjesta>();
                 using (SqlConnection connection = new SqlConnection(Helper.ConnectionVal("SchoolCommander")))
                 {
-                    connection.Open();
+                    
                     using (SqlCommand command = new SqlCommand())
                     {
+                        connection.Open();
                         command.Connection = connection;
                         command.CommandText = "SELECT * FROM Radna_Mjesta ORDER BY nazivRadnogMjesta ASC";
                         SqlDataReader dataReader = command.ExecuteReader();

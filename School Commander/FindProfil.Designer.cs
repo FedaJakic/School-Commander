@@ -31,10 +31,10 @@ namespace School_Commander
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindProfil));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.labelNoviProfil = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.labelNoviProfil = new System.Windows.Forms.Label();
             this.textBoxPrezime = new System.Windows.Forms.TextBox();
             this.labelPrezime = new System.Windows.Forms.Label();
             this.labelIme = new System.Windows.Forms.Label();
@@ -42,8 +42,8 @@ namespace School_Commander
             this.btnTrazi = new FontAwesome.Sharp.IconButton();
             this.listBoxPronađeniRezultati = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,6 +58,27 @@ namespace School_Commander
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(246, 450);
             this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Marlett", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.label2.Location = new System.Drawing.Point(48, 408);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(161, 19);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "School Commander";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(37, 227);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(168, 162);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // iconPictureBox1
             // 
@@ -82,27 +103,6 @@ namespace School_Commander
             this.labelNoviProfil.Size = new System.Drawing.Size(122, 52);
             this.labelNoviProfil.TabIndex = 9;
             this.labelNoviProfil.Text = "Pronađi\r\nuposlenika";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Marlett", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
-            this.label2.Location = new System.Drawing.Point(48, 408);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 19);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "School Commander";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(37, 227);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 162);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // textBoxPrezime
             // 
@@ -182,13 +182,14 @@ namespace School_Commander
             this.Controls.Add(this.labelIme);
             this.Controls.Add(this.textBoxIme);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FindProfil";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FindProfil";
+            this.Text = "Pronađi profil";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
